@@ -1,6 +1,8 @@
 package com.anshul
 
+import io.ktor.application.Application
 import io.ktor.application.call
+import io.ktor.http.HttpStatusCode
 import io.ktor.response.respond
 import io.ktor.routing.get
 import io.ktor.routing.routing
@@ -34,12 +36,13 @@ import io.ktor.server.netty.Netty
 //}
 
 fun main(args: Array<String>) {
-    val server = embeddedServer(Netty, 8080) {
-        routing {
-            get  ("/" ){
-                call.respond("HELLO WORLD!")
-            }
+    embeddedServer(Netty, port = 8080, module = Application::module).start(true)
+}
+
+fun Application.module(){
+    routing {
+        get  ("/" ){
+            call.respond(status = HttpStatusCode.OK, message = "HELLO WORLD!")
         }
     }
-    server.start()
 }

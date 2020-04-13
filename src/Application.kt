@@ -9,7 +9,7 @@ import io.ktor.routing.routing
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 
-//fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
+fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 //
 //@Suppress("unused") // Referenced in application.conf
 //@kotlin.jvm.JvmOverloads
@@ -35,9 +35,9 @@ import io.ktor.server.netty.Netty
 //    }
 //}
 
-fun main(args: Array<String>) {
-    embeddedServer(Netty, port = 8080, module = Application::module).start(true)
-}
+//fun main(args: Array<String>) {
+//    embeddedServer(Netty, port = 8080, module = Application::module).start(true)
+//}
 
 fun Application.module(){
     routing {

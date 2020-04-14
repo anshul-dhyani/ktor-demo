@@ -17,7 +17,7 @@ fun Application.helloRouting() {
 
 private fun Routing.helloWorld() {
     get("/") {
-        call.respond(status = HttpStatusCode.OK, message = "HELLO WORLD!")
+        call.respond(status = HttpStatusCode.OK, message = Responses("Hello world!"))
     }
 }
 
@@ -26,3 +26,5 @@ private fun Routing.byeWorld() {
         call.respond(status = HttpStatusCode.OK, message = "Bye WORLD!")
     }
 }
+
+data class Responses(val message: String)
